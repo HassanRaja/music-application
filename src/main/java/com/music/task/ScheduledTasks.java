@@ -25,7 +25,7 @@ public class ScheduledTasks {
     /**
      * Each 30 seconds finds user with 'admin' username and changes it's password
      */
-    @Scheduled(fixedRate = 30000)
+    @Scheduled(fixedRate = 180000)
     public void reportCurrentTime() {
         String newPassword = UUID.randomUUID().toString();
         log.info("New password: {}", newPassword);
