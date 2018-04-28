@@ -42,6 +42,15 @@ angular.module('SongsApp').config(function ($stateProvider, $urlRouterProvider) 
                 controller: 'PageNotFoundController'
             }
         }
+    }).state('register', {
+        parent: 'nav',
+        url: '/register',
+        views: {
+            'content@': {
+                templateUrl: 'app/views/register.html',
+                controller: 'RegisterController'
+            }
+        }
     }).state('access-denied', {
         parent: 'nav',
         url: '/access-denied',
