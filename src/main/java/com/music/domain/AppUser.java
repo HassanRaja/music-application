@@ -7,6 +7,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -18,12 +20,15 @@ import java.util.List;
 public class AppUser implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
 
     @Column(unique = true)
     private String username;
+
+    @NotNull
+    @Size(min = 4, message = "Password should have at least 2 characters")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @ElementCollection
